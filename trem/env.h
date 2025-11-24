@@ -8,8 +8,8 @@
 #define BROKER_URL "cd85d77f392340d88bf57f7e27f9d9b9.s1.eu.hivemq.cloud"
 #define BROKER_PORT 8883
 // Variáveis do user do Broker
-#define BROKER_USER_NAME "Vitor1234"
-#define BROKER_USER_PASS "Vitor1234"
+#define BROKER_USER_NAME "Murilo1234"
+#define BROKER_USER_PASS "Murilo1234"
 // Variáveis dos Tópicos
 
 
