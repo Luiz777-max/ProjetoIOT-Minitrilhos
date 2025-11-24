@@ -9,7 +9,7 @@ WiFiClientSecure conexao_wifi;
 // Cliente MQTT usando a conexão segura
 PubSubClient mqtt_broker(conexao_wifi);
 
-// Definição dos LEDs (simulando o motor)
+// Definição dos LEDs 
 const int led_esquerda = 18;  
 const int led_direita = 19;
 
@@ -50,7 +50,7 @@ void setup() {
   // Define a função que será chamada quando chegar uma mensagem
   mqtt_broker.setCallback(receber_callback);
 
-  // Configuração dos LEDs (motor simulado)
+  // Configuração dos LEDs 
   pinMode(led_esquerda, OUTPUT);
   pinMode(led_direita, OUTPUT);
   digitalWrite(led_esquerda, LOW);
@@ -85,13 +85,13 @@ void receber_callback(char* topic, byte* payload, unsigned long length){
 
   Serial.println("Valor recebido: " + valor_recebido);
 
-  // Converte o texto em número (velocidade)
+  // Converte o texto em número 
   int velocidade_motor = valor_recebido.toInt();
 
   Serial.print("Velocidade interpretada: ");
   Serial.println(velocidade_motor);
 
-  // LÓGICA DO MOTOR (simulado)
+  // LÓGICA DO MOTOR 
   if (velocidade_motor == 0) {
     // Parado
     digitalWrite(led_esquerda, LOW);
