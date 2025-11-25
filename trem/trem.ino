@@ -1,12 +1,12 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <WiFiClientSecure.h> 
-#include "env.h" // Credenciais separadas por segurança
+#include "env.h" 
 
 // Criação do cliente WiFi seguro
 WiFiClientSecure conexao_wifi;
 
-// Cliente MQTT usando a conexão segura
+
 PubSubClient mqtt_broker(conexao_wifi);
 
 // Definição dos LEDs 
@@ -58,17 +58,13 @@ void setup() {
 }
 
 void loop() {
-  // Envia algo para o MQTT se você digitar no Serial Monitor
   String entrada = "";
   if (Serial.available() > 0) {
     entrada = Serial.readStringUntil('\n');
     Serial.print("Enviado: ");
     Serial.println(entrada);
-
-    // Publica no tópico bezinho
     mqtt_broker.publish("bezinho", entrada.c_str());
   }
-
   // Mantém a conexão MQTT ativa
   mqtt_broker.loop();
 }
