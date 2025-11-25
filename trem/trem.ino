@@ -5,8 +5,6 @@
 
 // Criação do cliente WiFi seguro
 WiFiClientSecure conexao_wifi;
-
-
 PubSubClient mqtt_broker(conexao_wifi);
 
 // Definição dos LEDs 
